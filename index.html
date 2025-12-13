@@ -11,107 +11,102 @@
 
     <body class="bg-light">
         <div class="container py-4">
-        <h2 class="mb-4">Mini Aplicación de Productos</h2>
+            <h2 class="mb-4 text-center">Mini Aplicación de Productos</h2>
 
-        <!-- Alertas -->
-        <div id="alertArea"></div>
+            <!-- Alertas -->
+            <div id="alertArea"></div>
 
-        <div class="row">
-            <!-- FORMULARIO -->
-            <div class="col-md-4">
-            <div class="card mb-3">
-                <div class="card-header">Registrar producto</div>
-                <div class="card-body">
-                <form id="formProducto">
-
-                    <div class="mb-2">
-                    <label>Nombre</label>
-                    <input type="text" id="txtNombre" class="form-control">
-                    </div>
-
-                    <div class="mb-2">
-                    <label>Precio</label>
-                    <input type="number" id="numPrecio" class="form-control" step="0.01">
-                    </div>
-
-                    <div class="mb-3">
-                    <label>Categoría</label>
-                    <select id="selCategoria" class="form-select">
-                        <option value="">Seleccione</option>
-                        <option>Abarrotes</option>
-                        <option>Bebidas</option>
-                        <option>Limpieza</option>
-                    </select>
-                    </div>
-
-                    <button class="btn btn-primary w-100">Agregar producto</button>
-                </form>
-                </div>
-            </div>
-
-            <button id="btnStats" class="btn btn-outline-dark w-100">
-                Ver estadísticas
-            </button>
-            </div>
-
-            <!-- TABLA Y FILTROS -->
-            <div class="col-md-8">
-            <div class="card mb-3">
-                <div class="card-header">Filtros</div>
-                <div class="card-body row g-2">
-
+            <div class="row">
+                <!-- FORMULARIO -->
                 <div class="col-md-4">
-                    <select id="selFiltroCategoria" class="form-select">
-                    <option>Todos</option>
-                    <option>Abarrotes</option>
-                    <option>Bebidas</option>
-                    <option>Limpieza</option>
-                    </select>
+                    <div class="card mb-3">
+                        <div class="card-header">Registrar producto</div>
+                        <div class="card-body">
+                            <form id="formProducto">
+
+                                <div class="mb-2">
+                                    <label>Nombre</label>
+                                    <input type="text" id="txtNombre" class="form-control">
+                                </div>
+
+                                <div class="mb-2">
+                                    <label>Precio</label>
+                                    <input type="number" id="numPrecio" class="form-control" step="0.01">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label>Categoría</label>
+                                    <select id="selCategoria" class="form-select">
+                                        <option value="">Seleccione</option>
+                                        <option>Abarrotes</option>
+                                        <option>Bebidas</option>
+                                        <option>Limpieza</option>
+                                    </select>
+                                </div>
+
+                                <button class="btn btn-primary w-100">Agregar producto</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button id="btnStats" class="btn btn-outline-dark w-100">
+                        Ver estadísticas
+                    </button>
                 </div>
 
-                <div class="col-md-4">
-                    <input type="text" id="txtBuscar" class="form-control" placeholder="Buscar por nombre">
+                <!-- TABLA Y FILTROS -->
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-header">Filtros</div>
+                            <div class="card-body row g-2">
+
+                                <div class="col-md-4">
+                                    <select id="selFiltroCategoria" class="form-select">
+                                        <option>Todos</option>
+                                        <option>Abarrotes</option>
+                                        <option>Bebidas</option>
+                                        <option>Limpieza</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <input type="text" id="txtBuscar" class="form-control" placeholder="Buscar por nombre">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <select id="selOrdenPrecio" class="form-select">
+                                        <option>Ninguno</option>
+                                        <option value="Asc">Precio Ascendente</option>
+                                        <option value="Desc">Precio Descendente</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-sm">
+                            <thead class="table-secondary">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Categoría</th>
+                                <th>Acción</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbodyProductos"></tbody>
+                        </table>
+
+                        <div id="statsArea"></div>
+                    </div>
                 </div>
-
-                <div class="col-md-4">
-                    <select id="selOrdenPrecio" class="form-select">
-                    <option>Ninguno</option>
-                    <option value="Asc">Precio Ascendente</option>
-                    <option value="Desc">Precio Descendente</option>
-                    </select>
-                </div>
-
-                </div>
-            </div>
-
-            <table class="table table-bordered table-sm">
-                <thead class="table-secondary">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Categoría</th>
-                    <th>Acción</th>
-                </tr>
-                </thead>
-                <tbody id="tbodyProductos"></tbody>
-            </table>
-
-            <div id="statsArea"></div>
             </div>
         </div>
-        </div>
-
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
         <!-- Bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./public/vendor/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- JS del proyecto -->
-        <script src="public/js/data.js"></script>
-        <script src="public/js/ui.js"></script>
-        <script src="public/js/stats.js"></script>
-        <script src="public/js/events.js"></script>
+        <script src="./public/js/datos.js"></script>
+        <script src="./public/js/interfaz.js"></script>
+        <script src="./public/js/estadisticas.js"></script>
+        <script src="./public/js/eventos.js"></script>
     </body>
 </html>
