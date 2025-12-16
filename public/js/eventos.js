@@ -1,3 +1,6 @@
+// Correccion de commit  Maria Jose
+
+
 function actualizarTabla() {
   var cat = $("#selFiltroCategoria").val();
   var txt = $("#txtBuscar").val();
